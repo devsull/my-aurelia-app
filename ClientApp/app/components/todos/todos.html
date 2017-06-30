@@ -1,0 +1,52 @@
+<template>
+    <form submit.delegate="addTodo()">
+        <label for="add-todo">Add Todo:</label>
+        <div class="input-group">
+            <input id="add-todo" class="form-control" value.bind="userInput" type="text" placeholder="Add Todo" required aria-required="true" />
+            <span class="input-group-btn">
+                <button class="btn btn-primary" type="submit">Add</button>
+            </span>
+        </div>
+    </form>
+
+    <div show.bind="incompleteTodos.length > 0">
+        <h3>TODO(s):</h3>
+        <div class="container">
+            <div repeat.for="todo of incompleteTodos" class="row">
+                <div class="col-10">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" checked.bind="todo.complete">
+                            ${todo.name}
+                        </label>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <button class="pull-right btn btn-sm btn-danger" click.delegate="remove($index)">Remove</button>
+                </div>
+                <br />
+            </div>
+        </div>
+    </div>
+    <div show.bind="completeTodos.length > 0">
+        <br/>
+        <hr/>
+        <h3>Complete:</h3>
+        <div class="container">
+            <div repeat.for="todo of completeTodos" class="row">
+                <div class="col-10">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" checked.bind="todo.complete">
+                            ${todo.name}
+                        </label>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <button class="pull-right btn btn-sm btn-danger" click.delegate="remove($index)">Remove</button>
+                </div>
+                <br />
+            </div>
+        </div>
+    <div>
+</template>
