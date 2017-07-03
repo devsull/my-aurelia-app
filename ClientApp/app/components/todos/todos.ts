@@ -1,3 +1,5 @@
+import * as _ from "lodash"
+
 export class Todos {
     userInput: string = "";
 
@@ -26,7 +28,8 @@ export class Todos {
         return this.todos.filter(t => !t.complete);
     }
 
-    remove(index: number) {
+    remove(id: number) {
+        const index = this.todos.findIndex(t => t.id === id);
         this.todos.splice(index, 1);
     }
 }
@@ -34,8 +37,10 @@ export class Todos {
 export class Todo {
     name: string;
     complete = false;
+    readonly id: number;
 
     constructor(name?: string, complete: boolean = false) {
+        this.id = parseInt(_.uniqueId());
         if(typeof(name) !== undefined){
             this.name = name;
         }

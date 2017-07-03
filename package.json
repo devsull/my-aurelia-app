@@ -2,6 +2,7 @@
   "name": "my_aurelia_app",
   "version": "0.0.0",
   "dependencies": {
+    "@types/lodash": "^4.14.68",
     "aurelia-bootstrapper": "^2.0.1",
     "aurelia-fetch-client": "^1.0.1",
     "aurelia-framework": "^1.1.0",
@@ -10,7 +11,8 @@
     "aurelia-router": "^1.2.1",
     "bootstrap": "^3.3.7",
     "isomorphic-fetch": "^2.2.1",
-    "jquery": "^3.2.1"
+    "jquery": "^3.2.1",
+    "lodash": "^4.17.4"
   },
   "devDependencies": {
     "@types/node": "^7.0.12",
